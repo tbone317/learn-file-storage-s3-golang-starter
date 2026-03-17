@@ -1,0 +1,18 @@
+@hostname = http://localhost:8091
+
+### Login
+POST {{hostname}}/api/login
+Content-Type: application/json
+
+{
+  "email": "admin@tubely.com",
+  "password": "password"
+}
+
+### Use the token from the login response in the Authorization header for the following requests
+GET {{hostname}}/api/videos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0dWJlbHktYWNjZXNzIiwic3ViIjoiMWFhMGJlZWEtNWEyZi00NmM4LWFjMGMtYjEwYzQ5ZTgzODRkIiwiZXhwIjoxNzc2MjkyNDgxLCJpYXQiOjE3NzM3MDA0ODF9.HI8ENYB6AjhcrtQBNJsx28mhpvol-CR9GrPxExKc7ew
+
+
+### Reset the server (deletes all videos and thumbnails)
+POST {{hostname}}/admin/reset
