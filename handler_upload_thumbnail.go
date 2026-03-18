@@ -53,6 +53,10 @@ func (cfg *apiConfig) handlerUploadThumbnail(w http.ResponseWriter, r *http.Requ
 		respondWithError(w, http.StatusBadRequest, "Unsupported media type for thumbnail", err)
 		return
 	}
+	if ext[0] != ".jpg" && ext[0] != ".jpeg" && ext[0] != ".png" {
+		respondWithError(w, http.StatusBadRequest, "Only JPG and PNG thumbnails are supported", nil)
+		return
+	}
 
 	video, err := cfg.db.GetVideo(videoID)
 	if err != nil {
