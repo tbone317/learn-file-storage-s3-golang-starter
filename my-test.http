@@ -37,3 +37,6 @@ Authorization: Bearer {{login.response.body.token}}
 
 ### Reset the server (deletes all videos and thumbnails)
 POST {{hostname}}/admin/reset
+
+### Get video URL
+GET https://tubely-22732.s3.us-east-2.amazonaws.com/landscape/pc-U9dQiyuRgOLa1eo1bXfPRx91dFrAKq81wDloMb0M.mp4
